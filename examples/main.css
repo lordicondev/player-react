@@ -1,0 +1,173 @@
+:root {
+    --palette-font: #3c3c3c;
+    --palette-primary: #08c18a;
+
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    background: white;
+    color: var(--palette-font);
+}
+
+a {
+    color: var(--palette-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0 0 16px;
+}
+
+h2 {
+    font-size: 16px;
+    margin: 32px 0 8px;
+}
+
+p {
+    max-width: 640px;
+}
+
+code,
+pre {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+}
+
+pre {
+    margin: 0;
+    padding: 8px 10px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+}
+
+button {
+    font: inherit;
+}
+
+lord-icon {
+    display: inline-block;
+    width: 96px;
+    height: 96px;
+}
+
+lord-icon[trigger='click'],
+.clickable {
+    cursor: pointer;
+}
+
+/* One example per row: the icon, then its code and what it does. */
+.rows {
+    max-width: 760px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.row p {
+    margin: 8px 0 0;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin: 16px 0;
+}
+
+/* Pages about scrolling: room to scroll, and a note that stays in sight. */
+.note {
+    position: sticky;
+    top: 0;
+    padding: 8px 0;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.spacer {
+    height: 120vh;
+}
+
+.toggle {
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+}
+
+.toggle[aria-pressed='true'] {
+    border-color: var(--palette-primary);
+}
+
+.toggle lord-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.log {
+    min-height: 96px;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.fade:state(ready) {
+    opacity: 1;
+}
+
+.play-button {
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+}
+
+.play-button:has(lord-icon:state(playing)) {
+    border-color: var(--palette-primary);
+}
+
+/* A card that slides in; its icon's intro waits for it. */
+.card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 320px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    animation: slide-in 800ms ease-out;
+}
+
+.card > lord-icon {
+    width: 48px;
+    height: 48px;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(160px);
+    }
+}

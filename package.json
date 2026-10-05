@@ -1,0 +1,72 @@
+{
+    "name": "@lordicon/react",
+    "version": "2.0.0",
+    "description": "<LordIcon> for React: animated Lordicon icons on the web, on top of the <lord-icon> element.",
+    "repository": "https://github.com/lordicondev/player-react",
+    "homepage": "https://lordicon.com/",
+    "keywords": [
+        "lordicon",
+        "lottie",
+        "icon",
+        "animation",
+        "react"
+    ],
+    "author": "Lordicon <dev@lordicon.com>",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE.md",
+        "CHANGELOG.md"
+    ],
+    "engines": {
+        "node": ">=22"
+    },
+    "scripts": {
+        "start": "vite --config vite-examples.config.ts",
+        "build": "vite build",
+        "test": "vitest run",
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "check:types": "tsc --noEmit",
+        "check": "npm run check:types && npm run lint && npm run format:check",
+        "prepack": "npm run build"
+    },
+    "peerDependencies": {
+        "react": "^19"
+    },
+    "dependencies": {
+        "@lordicon/element": "^3.0.2"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/node": "^26.6.3",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "@vitejs/plugin-react": "^6.1.1",
+        "eslint": "^10.11.0",
+        "eslint-plugin-react-hooks": "^7.1.1",
+        "globals": "^17.12.0",
+        "happy-dom": "^20.14.5",
+        "prettier": "^3.9.9",
+        "react": "^19.3.0",
+        "react-dom": "^19.3.0",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.71.0",
+        "vite": "^8.3.1",
+        "vite-plugin-dts": "^5.1.1",
+        "vitest": "^5.0.2"
+    }
+}
