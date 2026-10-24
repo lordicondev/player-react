@@ -211,4 +211,18 @@ describe('LordIcon', () => {
             'a',
         ]);
     });
+
+    it("The lordicon's /parent command properly", async () => {
+        const { icon, container } = await render(
+            <div>
+                <LordIcon target="/parent" trigger="hover" icon={iconData()} />
+            </div>,
+        );
+        container.dispatchEvent(new PointerEvent('pointerenter'));
+        setTimeout(test, 200);
+        function test() {
+            icon.pause();
+            expect(icon.player?.progress).toBeGreaterThan(0);
+        }
+    });
 });

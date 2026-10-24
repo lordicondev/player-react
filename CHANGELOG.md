@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1
+
+Support for `/parent` command added, now users can simply pass `/parent` as target and parent will be
+automatically selected as target. Users acn also use `/parent*n` for successive levels of parents.
+
 ## 2.0.0
 
 A new package on the same name: `<LordIcon>` renders the `<lord-icon>` element

@@ -210,6 +210,11 @@ are. To read them in React:
 CSS works the same way on `lord-icon`: `:state()`, and colours as `--lord-icon-primary` and so
 on. The examples of this repository (`npm start`) show the React side.
 
+## The `/parent` command
+
+Lordicon has an special `/parent` command as target which allows you to set the parent of Lordicon as target without adding any extra class or ref. It can be used as `/parent*n` for successive level of parents.
+This feature is introduced in v-2.0.1.
+
 ## Upgrading
 
 What changed from 1.x, and what to write instead: [CHANGELOG.md](CHANGELOG.md).

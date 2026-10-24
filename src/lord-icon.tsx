@@ -124,6 +124,20 @@ export function LordIcon(props: LordIconProps) {
     // change without one; a trigger that started meanwhile moves over to the target.
     useEffect(() => {
         const node = element.current;
+        if (typeof target === 'string' && node) {
+            let current: HTMLElement | null = node.parentElement;
+            const match = /^\/parent\*(\d+)$/.exec(target);
+
+            if (match) {
+                const depth = Number(match[1]);
+                // Ascend 'depth - 1' times since we already took parentElement once
+                for (let i = 1; i < depth; i++) {
+                    current = current?.parentElement || null;
+                }
+            } else if (target === '/parent') void 0;
+            else return;
+            node.target = current;
+        }
         if (!node || target == null || typeof target === 'string') return;
         const resolved = target instanceof HTMLElement ? target : target.current;
         if (resolved && node.target !== resolved) node.target = resolved;
@@ -157,7 +171,7 @@ export function LordIcon(props: LordIconProps) {
             {...rest}
             ref={setRef}
             icon={icon}
-            target={typeof target === 'string' ? target : undefined}
+            target={targetCss(target)}
             colors={typeof colors === 'object' ? formatColors(colors) : colors}
             current-color={currentColor ? '' : undefined}
         />
@@ -169,4 +183,14 @@ function formatColors(colors: Record<string, string>): string {
     return Object.entries(colors)
         .map(([name, value]) => `${name}:${value}`)
         .join(',');
+}
+
+/**
+ * Filter out parent-relative target strings and ref objects for CSS selection.
+ */
+function targetCss(target: unknown): string | undefined {
+    if (target === '' || target === undefined || target === null) return;
+    if (typeof target !== 'string') return;
+    if (target === '/parent' || /^\/parent\*\d+$/.test(target)) return;
+    return target;
 }
