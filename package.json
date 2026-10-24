@@ -1,6 +1,6 @@
 {
     "name": "@lordicon/react",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "<LordIcon> for React: animated Lordicon icons on the web, on top of the <lord-icon> element.",
     "repository": "https://github.com/lordicondev/player-react",
     "homepage": "https://lordicon.com/",
